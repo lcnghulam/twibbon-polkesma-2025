@@ -18,10 +18,35 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
+const title = "Twibbon SPMB Polkesma 2025";
+const description = "Twibbon Generator untuk Maba Politeknik Negeri Malang Tahun Ajaran 2025/2026";
 export const metadata: Metadata = {
-  title: "Twibbon SPMB Polkesma 2025",
-  description: "Twibbon Generator untuk Maba Politeknik Negeri Malang Tahun Ajaran 2025/2026",
-  icons: "/favico.ico"
+
+  title: title,
+  description: description,
+  icons: "/favico.ico",
+
+  openGraph: {
+    title: title,
+    description: description,
+    url: "https://www.twibbon-polkesma.zone.id",
+    siteName: "Twibbon SPMB Polkesma 2025",
+    images: [
+      {
+        url: "https://www.twibbon-polkesma.zone.id/logo-polkesma.png",
+        width: 512,
+        height: 512,
+        alt: "Polkesma Twibbon's Logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: title,
+    description: description,
+    images: ["https://www.twibbon-polkesma.zone.id/logo-polkesma.png"],
+  },
 };
 
 export default function RootLayout({

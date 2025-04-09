@@ -53,9 +53,12 @@ body {
   font-size: 14px;
 }
 
-.twibbon-section Canvas {
+.twibbon-section canvas {
+  @apply border-2 border-dashed rounded-lg mx-auto my-4 touch-none;
+  width: 80%;
   max-width: 300px;
   height: auto;
+  display: block;
 }
 
 .twibbon-buttons {
@@ -69,7 +72,7 @@ body {
 }
 
 .twibbon-buttons button,
-.post-buttons button{
+.caption-buttons button{
   @apply inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors hover:scale-[1.02] ease-in-out transform text-neutral-100 fill-current;
 }
 
@@ -85,23 +88,55 @@ body {
   @apply bg-lime-500 hover:bg-lime-700 rounded-full;
 }
 
-.twibbon-buttons .btn-ig,
-.post-buttons .btn-ig {
+.canvas-controls {
+  @apply text-sm text-left max-w-xs mx-auto space-y-2;
+}
+
+.canvas-controls .canvas-info {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.canvas-controls button {
+  @apply transition-colors hover:scale-[1.02] ease-in-out transform cursor-pointer;
+}
+
+.canvas-controls input[type="range"] {
+  @apply accent-blue-500;
+}
+
+.canvas-controls .btn-rotate {
+  @apply bg-yellow-500 hover:bg-yellow-700 text-white px-3 py-1 rounded w-full;
+}
+
+.canvas-controls .btn-reset {
+  @apply bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded w-full;
+}
+
+.caption-buttons .btn-copy {
   @apply bg-red-500 hover:bg-red-700 rounded-sm;
 }
 
-.twibbon-ig form {
+.caption-buttons .btn-copied {
+  @apply bg-green-500 rounded-sm cursor-not-allowed;
+}
+
+.twibbon-ig h3 {
+  font-size: 20px;
+}
+
+.twibbon-ig #captionIG {
   font-size: 14px;
 }
 
-.twibbon-ig form label {
+.twibbon-ig #captionIG label {
   align-self: flex-start;
   font-weight: 600;
   margin-left: 0.25rem;
 }
 
-.twibbon-ig form input,
-.twibbon-ig form textarea {
+.twibbon-ig #captionIG input,
+.twibbon-ig #captionIG textarea {
   padding: 10px;
   border: 1px solid #888;
   border-radius: 10px;
@@ -110,6 +145,6 @@ body {
   transition: border-color 0.3s ease;
 }
 
-.twibbon-ig form input::placeholder {
+.twibbon-ig #captionIG input::placeholder {
   font-style: italic;
 }
