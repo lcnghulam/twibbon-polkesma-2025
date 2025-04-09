@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import Croppie from "croppie";
-import "croppie/croppie.css";
 
 export default function Home() {
   // Canvas
@@ -19,7 +17,7 @@ export default function Home() {
   const [dragging, setDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [scale, setScale] = useState(1.05);
+  const [scale, setScale] = useState(1);
   const [rotation, setRotation] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
   const [isTwibbonActive, setIsTwibbonActive] = useState(false);
@@ -89,6 +87,7 @@ export default function Home() {
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
     const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
     if (!allowedTypes.includes(file.type)) {
       alert("Hanya file JPG/JPEG/PNG yang diperbolehkan.");
@@ -102,13 +101,15 @@ export default function Home() {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        // const fitScale = canvasSize / img.height;
+        const { width, height } = img;
+        const maxDim = Math.max(width, height);
+        const fitScale = canvasSize / maxDim;
 
         setImageObj(img);
         setIsTwibbonActive(true);
         setRotation(0);
         setPos({ x: 0, y: 0 });
-        // setScale(fitScale);
+        setScale(fitScale); // auto scale based on largest side
       };
       img.src = event.target?.result as string;
     };
@@ -242,7 +243,7 @@ export default function Home() {
 
   const handleReset = () => {
     setImageObj(null);
-    setScale(1.05);
+    setScale(1);
     setRotation(0);
     setPos({ x: 0, y: 0 });
     setIsTwibbonActive(false);
@@ -371,7 +372,8 @@ Saya siap mengikuti masa pengenalan lingkungan sekolah dan menjadi Mahasiswa Pol
         {imageObj && (
           <div className="canvas-controls flex flex-col mb-4">
             <span className="canvas-info mx-auto text-center">
-              Drag/Pinch-Zoom melalui canvas untuk geser/ubah ukuran gambar atau menggunakan bar-slider tool dibawah ini:
+              Drag/Pinch-Zoom melalui canvas untuk geser/ubah ukuran gambar atau
+              menggunakan bar-slider tool dibawah ini:
             </span>
             <label className="block mb-2">
               Resize:
