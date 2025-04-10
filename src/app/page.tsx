@@ -541,10 +541,10 @@ Satu Tuju, Satu Jiwa Wujudkan Polkesma Mendunia
               />
             </div>
             <div className="flex flex-col gap-1 mb-2">
-              <label htmlFor="captionIG">Format Caption</label>
+              <label htmlFor="caption">Format Caption</label>
               <textarea
                 name="caption"
-                id="captionIG"
+                id="caption"
                 rows={15}
                 readOnly
                 value={caption}

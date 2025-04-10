@@ -25,10 +25,10 @@ const description = "Twibbon Generator untuk PKKMB Politeknik Negeri Malang Tahu
 export const metadata: Metadata = {
   title: title,
   description: description,
-  icons: "/favico.ico",
+  icons: "https://www.twibbon-polkesma.zone.id/favicon.ico",
   keywords: [
-    "Twibbon", "PKKMB", "Polkesma", "Politeknik Negeri Malang", "Twibbon Generator", 
-    "Tahun Ajaran 2025", "2026", "Logo Polkesma", "Polkesma Muda 2024"
+    "Twibbon PKKMB Polkesma 2025", "Twibbon", "PKKMB", "Polkesma", "Politeknik Negeri Malang", "Twibbon Generator", 
+    "Tahun Ajaran 2025", "2026", "Polkesma Muda 2025"
   ],
   openGraph: {
     title: title,
