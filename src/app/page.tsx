@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
+import LogosHeader from "@/components/LogosHeader";
 
 export default function Home() {
   // Canvas
@@ -290,31 +291,39 @@ export default function Home() {
 
   // IG Caption
   const [nama, setNama] = useState("");
+  const [jurusan, setJurusan] = useState("");
   const [prodi, setProdi] = useState("");
   const [caption, setCaption] = useState("");
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const fallbackNama = nama.trim() === `` ? "{𝙣𝙖𝙢𝙖}" : nama;
+    const fallbackNama = nama.trim() === `` ? "{𝙣𝙖𝙢𝙖}" : `"${nama}"`;
+    const fallbackJurusan = jurusan.trim() === `` ? "{𝙟𝙪𝙧𝙪𝙨𝙖𝙣}" : jurusan;
     const fallbackProdi = prodi.trim() === `` ? "{𝙥𝙧𝙤𝙙𝙞}" : prodi;
 
-    const newCaption = `🚀 𝗜'𝗠 𝗥𝗘𝗔𝗗𝗬 𝗙𝗢𝗥 𝗦𝗣𝗠𝗕 𝟮𝟬𝟮𝟱 𝗣𝗢𝗟𝗞𝗘𝗦𝗠𝗔 ✨
-"𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆 𝒊𝒔 𝒑𝒐𝒘𝒆𝒓 𝒂𝒏𝒅 𝒑𝒐𝒘𝒆𝒓 𝒊𝒔 𝒂 𝒄𝒉𝒂𝒓𝒂𝒄𝒕𝒆𝒓"
-Pengetahuan adalah kekuatan dan kekuatan adalah karakter
+    const newCaption = `✨ 𝐂𝐀𝐏𝐓𝐈𝐎𝐍 𝐓𝐖𝐈𝐁𝐁𝐎𝐍 𝐏𝐊𝐊𝐌𝐁 𝟐𝟎𝟐𝟒 🦚
 
-Haloo kawan! 👋🤩
-Saya ${fallbackNama} dari ${fallbackProdi}
-Saya siap mengikuti masa pengenalan lingkungan sekolah dan menjadi Mahasiswa Politeknik Kesehatan Malang yang mewujudkan generasi berpengetahuan, kuat, dan berkarakter.
+Haloo Polkesma Muda 🙌🏼
 
-@xxxxxx
-@xxxxxx
+Saya ${fallbackNama} dari Jurusan ${fallbackJurusan} Prodi ${fallbackProdi} bangga menjadi bagian dari keluarga besar Politeknik Kesehatan Kemenkes Malang dan siap menyukseskan Pengenalan Kehidupan Kampus Mahasiswa Baru (PKKMB) Polkesma 2024
 
-#xxxxx
-#xxxxx
-#xxxxx`;
+POLKESMA MUDA!
+
+Satu Tuju, Satu Jiwa Wujudkan Polkesma Mendunia
+
+"𝑷𝒆𝒏𝒅𝒊𝒅𝒊𝒌𝒂𝒏 𝒂𝒅𝒂𝒍𝒂𝒉 𝒂𝒘𝒂𝒍 𝒅𝒂𝒓𝒊 𝒑𝒆𝒓𝒖𝒃𝒂𝒉𝒂𝒏, 𝒕𝒂𝒏𝒑𝒂 𝒑𝒆𝒏𝒅𝒊𝒅𝒊𝒌𝒂𝒏 𝒕𝒊𝒅𝒂𝒌 𝒂𝒅𝒂 𝒑𝒆𝒓𝒂𝒅𝒂𝒃𝒂𝒏." - 𝗡𝗮𝗷𝘄𝗮 𝗦𝗵𝗶𝗵𝗮𝗯
+
+@pkkmbpolkesma @pkkmbpolkesma @pkkmbpolkesma
+
+#PKKMB2024
+#PKKMBPOLKESMA2024
+#MABAPOLKESMA2024
+#BEMPOLKESMA
+#POLKESMAMUDA2024
+#CASAGLORETHA`;
 
     setCaption(newCaption);
-  }, [nama, prodi]);
+  }, [nama, jurusan, prodi]);
 
   const handleCopy = async () => {
     if (copied) return;
@@ -347,8 +356,9 @@ Saya siap mengikuti masa pengenalan lingkungan sekolah dan menjadi Mahasiswa Pol
 
   return (
     <div className="container p-4 border-2 border-solid">
+      <LogosHeader />
       <h1 className="text-2xl tracking-[4] font-bold mb-2">
-        🎉 Twibbon SPMB Polkesma 2025 😁
+        🎉 Twibbon PKKMB Polkesma 2025 😁
       </h1>
       <span className="greeting font-extralight">
         Halo teman-teman! 👋 Selamat datang di Website Twibbon Polkesma! Buat
@@ -506,6 +516,17 @@ Saya siap mengikuti masa pengenalan lingkungan sekolah dan menjadi Mahasiswa Pol
                 placeholder="Muhammad Stevanus Akbar"
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
+              />
+            </div>
+            <div className="flex flex-col gap-1 mb-2">
+              <label htmlFor="jurusan">Jurusan</label>
+              <input
+                type="text"
+                name="jurusan"
+                id="jurusan"
+                placeholder="Kebidanan"
+                value={jurusan}
+                onChange={(e) => setJurusan(e.target.value)}
               />
             </div>
             <div className="flex flex-col gap-1 mb-2">
